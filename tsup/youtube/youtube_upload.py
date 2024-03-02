@@ -356,6 +356,24 @@ class YoutubeUpload:
         self.log.debug("Found YouTube upload Dialog Modal")
 
         self.log.debug(f'Trying to upload "{video_path}" to YouTube...')
+
+        # Improve your experience Tip  SKIP TO YOUTUBE STUDIO
+        try:
+            link_text = "Skip to YouTube Studio"
+            link_locator = page.locator(f"text='{link_text}'")
+
+            # 检查链接的存在性
+            if await link_locator.count() > 0:
+                self.log.debug("Found Improve your experience Tip")
+                await link_locator.click()
+                self.log.debug("SKIP TO YOUTUBE STUDIO clicked")
+            else:
+                self.log.debug("NOT Found Improve your experience Tip")
+        except:
+            self.log.debug(
+                f"Process SKIP TO YOUTUBE STUDIO something wrong"
+            )
+
         if os.path.exists(get_path(video_path)):
             page.locator(INPUT_FILE_VIDEO)
             await page.set_input_files(INPUT_FILE_VIDEO, get_path(video_path))
@@ -498,9 +516,11 @@ class YoutubeUpload:
                     sleep(1)
                 self.log.debug("copyright checking is finished")
                 self.log.debug("start to check whether copyright issue exist")
+
+                # @TODO 
                 s = await page.locator(STATUS_CONTAINER).text_content()
                 if not "Checks complete. No issues found" in s:
-                    self.log.debug("copyright issue exist")
+                    self.log.debug(f"copyright issue exist: {s}")
 
                     # force publish_policy to private if there is any copyright issues
                     publish_policy = 0
