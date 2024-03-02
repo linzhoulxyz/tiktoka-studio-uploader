@@ -103,7 +103,7 @@ if __name__ == "__main__":
     ]
 # channelname is your account name or something else
 # for youtube
-getCookie(browserType='firefox',proxyserver='socks5://127.0.0.1:1080',channelname='fastlane',url=sites[0])
+getCookie(browserType='firefox',proxyserver='',channelname='HowToPronounce',url=sites[0])
 
 # for tiktok
 # i7SNiSG8V7jND^

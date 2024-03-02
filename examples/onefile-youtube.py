@@ -47,7 +47,7 @@ upload = YoutubeUpload(
     channel_cookie_path=channel_cookie_path,
     username=username,
     browser_type="firefox",
-    wait_policy="go next after copyright check success",
+    wait_policy="go next after uploading success",
     password=password,
     is_record_video=True
     # for test purpose we need to check the video step by step ,

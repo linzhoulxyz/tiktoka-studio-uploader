@@ -517,7 +517,6 @@ class YoutubeUpload:
                 self.log.debug("copyright checking is finished")
                 self.log.debug("start to check whether copyright issue exist")
 
-                # @TODO 
                 s = await page.locator(STATUS_CONTAINER).text_content()
                 if not "Checks complete. No issues found" in s:
                     self.log.debug(f"copyright issue exist: {s}")
@@ -526,6 +525,7 @@ class YoutubeUpload:
                     publish_policy = 0
                 else:
                     self.log.debug("There is no copyright issue exist")
+
         # get video id
         try:
             self.log.debug(f"Trying to get videoid...")
