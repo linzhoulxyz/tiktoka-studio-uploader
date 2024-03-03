@@ -838,9 +838,9 @@ class YoutubeUpload:
             publish = "public"
             try:
                 if publish == "unlisted":
+                    pub_visible = await page.get_by_role("radio", name="Public").is_visible()
                     self.log.debug(
-                        f"detect getbyrole unlisted button visible:",
-                        await page.get_by_role("radio", name="Public").is_visible(),
+                        f"detect getbyrole unlisted button visible: {pub_visible}",
                     )
 
                     # self.log.debug(f'detect public button visible{PUBLIC_BUTTON}:',await page.locator(PUBLIC_BUTTON).is_visible())
@@ -851,9 +851,9 @@ class YoutubeUpload:
                 elif publish == "public":
                     self.log.debug("switch case to public")
                     try:
+                        pub_visible = await page.get_by_role("radio", name="Public").is_visible()
                         self.log.debug(
-                            f"detect getbyrole public button visible:",
-                            await page.get_by_role("radio", name="Public").is_visible(),
+                            f"detect getbyrole public button visible: {pub_visible}"
                         )
 
                         # self.log.debug(f'detect public button visible{PUBLIC_BUTTON}:',await page.locator(PUBLIC_BUTTON).is_visible())
@@ -861,14 +861,14 @@ class YoutubeUpload:
                         await page.get_by_role("radio", name="Public").click()
                         self.log.debug("public radio button clicked")
                         # await page.locator(PUBLIC_BUTTON).click()
-                    except:
-                        self.log.debug("we could not find the public buttton...")
+                    except Exception as e:
+                        self.log.debug(f"we could not find the public buttton... {e}")
 
                 elif publish == "public&premiere":
                     try:
+                        pub_visible = await page.get_by_role("radio", name="Public").is_visible()
                         self.log.debug(
-                            f"detect getbyrole public button visible:",
-                            await page.get_by_role("radio", name="Public").is_visible(),
+                            f"detect getbyrole public button visible: {pub_visible}"
                         )
                         await page.get_by_role("radio", name="Public").click()
                         self.log.debug("public radio button clicked")
