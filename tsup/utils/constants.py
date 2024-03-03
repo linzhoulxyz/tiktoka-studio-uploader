@@ -495,3 +495,9 @@ NOT_MADE_FOR_KIDS_LABEL = ".made-for-kids-rating-container"
 ERROR_SHORT_SELECTOR = "#dialog > div > ytcp-animatable.button-area.metadata-fade-in-section.style-scope.ytcp-uploads-dialog > div > div.left-button-area.style-scope.ytcp-uploads-dialog > div > div.error-short.style-scope.ytcp-uploads-dialog"
 ERROR_SHORT_XPATH = '//*[@id="dialog"]/div/ytcp-animatable[2]/div/div[1]/div/div[1]'
 UPLOADING_PROGRESS_SELECTOR = "#dialog > div > ytcp-animatable.button-area.metadata-fade-in-section.style-scope.ytcp-uploads-dialog > div > div.left-button-area.style-scope.ytcp-uploads-dialog > ytcp-video-upload-progress > span"
+
+# metafile
+META_TITLE = 'title'
+META_DESCRIPTION = 'description'
+META_PLAYLIST = 'playlist_title'
+META_TAGS = 'tags'
