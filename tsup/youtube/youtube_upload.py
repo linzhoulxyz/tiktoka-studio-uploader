@@ -827,11 +827,12 @@ class YoutubeUpload:
             await page.locator(PRIVATE_RADIO_LABEL).click()
         elif int(publish_policy) == 1:
             self.log.debug("Trying to set video visibility to public...")
+
             await page.locator(
-                "#first-container > tp-yt-paper-radio-button:nth-child(1)"
+                "#first-container > tp-yt-paper-radio-group"
             ).is_visible()
             await page.locator(
-                "#first-container > tp-yt-paper-radio-button:nth-child(1)"
+                "#first-container > tp-yt-paper-radio-group"
             ).click()
 
             publish = "public"
